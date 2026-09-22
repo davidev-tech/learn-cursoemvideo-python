@@ -1,54 +1,111 @@
-O Dicionario é a terceira variavel composta do Python. Pode ser decladara como: dados = dict(), ou dados = {    }
-Diferente das outras estruturas que as buscas são feitas por indices, no dicionario temos as etiquetas ou chaves.
-----------------------------------------------------------------------------------------------------------------------------------
-Ex:
-        dados = {"nome":"Pedro","idade":25}
-        print(dados["nome"])
-        print(dados["idade"])
+# Dicionários em Python
 
-Enquanto nas estruturas anterior as buscas eram realizadas pelos indices, aqui o uso das chaves facilitam as buscas e legibilidade do codigo
-----------------------------------------------------------------------------------------------------------------------------------
-Diferente das listas aqui não usamos o append, mas enserimos a nova chave + valor diretamente no dicionario.
-Ex:
-dados = {"nome": "Pedro","idade": 25}
+## Definição
+
+O **dicionário** é a terceira variável composta do Python.  
+Pode ser declarado como:
+
+```python
+dados = dict()
+# ou
+dados = {}
+```
+
+Diferente das outras estruturas, em que as buscas são feitas por **índices**, no dicionário temos **etiquetas** ou **chaves**.
+
+## Exemplo básico
+
+```python
+dados = {"nome": "Pedro", "idade": 25}
+print(dados["nome"])
+print(dados["idade"])
+```
+
+Enquanto nas estruturas anteriores as buscas eram realizadas pelos índices, aqui o uso das chaves facilita as buscas e a legibilidade do código.
+
+## Inserir e deletar
+
+Diferente das listas, aqui **não usamos `append`**. Inserimos a nova chave + valor diretamente no dicionário:
+
+```python
+dados = {"nome": "Pedro", "idade": 25}
 
 dados["sexo"] = "m"
 
-dados = {"nome": "Pedro","idade": 25,"sexo": "m"}
+# Agora: dados = {"nome": "Pedro", "idade": 25, "sexo": "m"}
+```
 
-Para deletar usamos o del padrão e ensirimos a chave.
+Para deletar, usamos o `del` padrão e indicamos a chave:
 
-del dados[idade]
+```python
+del dados["idade"]
 
-dados = {"nome": "Pedro","sexo": "m"}
-----------------------------------------------------------------------------------------------------------------------------------
-As estruturas de variaveis compostas não precisam fechar na mesma linha contando que a feche.
+# Agora: dados = {"nome": "Pedro", "sexo": "m"}
+```
 
-Ex:
-        filme = {"titulo": "Star Wars",
-                  "ano": 1977,
-                  "diretor": "George Lucas"
-                 }
-----------------------------------------------------------------------------------------------------------------------------------
-Comandos:
+> **Atenção:** a chave é uma string, então precisa estar entre aspas: `del dados["idade"]`.
 
-filme.values() Pega somente os valores.
-filme.keys() Pega somente as Chaves.
-filme.items() Pega os dois Chave e Valor
-filme.copy() Copiar o valor assim como o [:] no entando dicionarios diferente das listas usam o .copy para copiar.
-----------------------------------------------------------------------------------------------------------------------------------
-O uso de loops também é possivel com essa estrutura.
+## Quebra de linha
 
-Ex: for k, v in filme.items():
-        print(f"O {k} é {v}.")
+As estruturas de variáveis compostas não precisam ser fechadas na mesma linha, contanto que sejam fechadas.
 
-Usamos o metodo items para pegar chave e valor ao inves de enumarete nos dicionarios.
-----------------------------------------------------------------------------------------------------------------------------------Também é possivel usar estruturas diferentes juntas: como o uso de dicionarios dentro de listas.
+```python
+filme = {
+    "titulo": "Star Wars",
+    "ano": 1977,
+    "diretor": "George Lucas"
+}
+```
 
-Ex: 
-locadora = [{"titulo": "Star Wars", "ano": 1977, "diretor": "George Lucas"},
-           {"titulo": "Avengers", "ano": 2012, "diretor": "Joss whendo"}, 
-           {"titulo": "Matrix", "ano": 1999, "diretor": "Wachowski"}]
+## Comandos úteis
 
-print(locadora[0]["ano"])  # Exibe 1977
-print(locadora[2]["titulo"]) # Exibe Matrix
+| Comando             | Descrição                                                                 |
+|---------------------|---------------------------------------------------------------------------|
+| `filme.values()`    | Pega somente os valores.                                                  |
+| `filme.keys()`      | Pega somente as chaves.                                                   |
+| `filme.items()`     | Pega os dois: chave e valor.                                              |
+| `filme.copy()`      | Copia o dicionário, assim como `[:]` nas listas. No entanto, dicionários, diferente das listas, usam `.copy()` para copiar. |
+
+> **Observação:** `keys()`, `values()` e `items()` retornam **visões dinâmicas** (*view objects*), não listas. Se precisar de uma lista, use `list(filme.keys())`, por exemplo.
+
+## Loops com dicionários
+
+O uso de loops também é possível com essa estrutura.
+
+```python
+for k, v in filme.items():
+    print(f"O {k} é {v}.")
+```
+
+Usamos o método `items()` para pegar chave e valor ao mesmo tempo, em vez de `enumerate` nos dicionários.
+
+> **Observação:** `enumerate` é mais usado em sequências (listas, strings, tuplas) para obter índice e valor. Em dicionários, `items()` já entrega chave e valor diretamente.
+
+## Estruturas compostas mistas
+
+Também é possível usar estruturas diferentes juntas, como dicionários dentro de listas.
+
+```python
+locadora = [
+    {"titulo": "Star Wars", "ano": 1977, "diretor": "George Lucas"},
+    {"titulo": "Avengers", "ano": 2012, "diretor": "Joss Whedon"},
+    {"titulo": "Matrix", "ano": 1999, "diretor": "Wachowski"}
+]
+
+print(locadora[0]["ano"])     # Exibe 1977
+print(locadora[2]["titulo"])  # Exibe Matrix
+```
+
+## Observações importantes
+
+- Dicionários são **mutáveis**.
+- As chaves devem ser **imutáveis** (strings, números, tuplas). Os valores podem ser de qualquer tipo.
+- Acessar uma chave inexistente gera `KeyError`. Para evitar erro, use `.get()`:
+  ```python
+  print(dados.get("altura"))        # None
+  print(dados.get("altura", 0))     # 0
+  ```
+- `.copy()` faz uma **cópia rasa**. Para cópia profunda, use `copy.deepcopy()`.
+- “Joss whendo” → **Joss Whedon**
+
+Pode enviar a próxima anotação.
