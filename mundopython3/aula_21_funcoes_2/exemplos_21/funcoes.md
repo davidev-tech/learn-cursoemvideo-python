@@ -1,39 +1,119 @@
-INTERACTIVE HELP: Para usar a ajuda interativa, basta usar a função help(), abrindo o INTERACTIVE HELP no terminal, digitamos o comando que temos duvidas e ele irá mostrar a documentação daquele comando. Para sair basta usar o comando: "q", "quit" ou "exit".
-Também podemos usar help(comando) no código para ser mais direto. O help() é uma função formatada para humanos (bonitinha e organizada).
+# Ajuda Interativa, Docstrings, Parâmetros Padrão, Escopo e Retorno
 
-Ex:     help(print)
-----------------------------------------------------------------------------------------------------------------------------------
-Uma segunda forma é o uso do __doc__: Para utilizar usamos print(comando.__doc__) Assim temos usa segunda forma de acessar a documentação daquele comando. O .__doc__ é o atributo "crú" (string pura).
+## Ajuda Interativa (`help()`)
 
-Ex:     print(len.__doc__)
-----------------------------------------------------------------------------------------------------------------------------------
-DOCSTRINGS: São documentações feita pelo desenvolvedor sobre a sua função, ficando logo a baixo da linha de definição da função. Oobjetivo delas é ser uma especie de manual para outros programadores ou até mesmo usuários.
+Para usar a **ajuda interativa**, basta usar a função `help()`. No terminal, digitamos o comando sobre o qual temos dúvidas e ele mostra a documentação daquele comando. Para sair, usamos `q`, `quit` ou `exit`.
 
-Ex:        
-        def contador(i,f,p):
-            """
-            --> Faz uma contagem e mostra na tela.
-            :param i: inicia a contagem.
-            :param f: Marca o fim da contagem.                
-            :param p: Pontua a quantidade do salto.
-            return: Sem retorno.
-            """  
+Também podemos usar `help(comando)` diretamente no código, para ser mais direto.
 
+> O `help()` é uma função formatada para humanos (bonita e organizada).
 
-Para ler a sua própria Docstring enquanto programa, basta digitar help(sua_funcao) no console. O Python vai buscar exatamente o que você escreveu entre as aspas triplas """.
-----------------------------------------------------------------------------------------------------------------------------------
-Default Parameters é um metodo utilizando um default para evitar que a função der um erro requerendo um argumento para um determinado parametro que não recebeu um argumento. Basicamente quando definimos 0 como argumento para os parametros na função a baixo, ele já tem aquele valor tornando a requisição de um argumento opcinal, pois usamos o 0 como argumento padrão. Parametros obrigatorios veem antes dos parametros opcionais.
+### Exemplo
 
-Ex:         def somar(a=0, b=0, c=0):
-                s = a + b + c
-                print(f"A soma vale {s}")
+```python
+help(print)
+```
 
+---
 
-            somar(3, 2, 5)
-            somar(5, 2)
-            somar(2)
-            somar()
-----------------------------------------------------------------------------------------------------------------------------------
-Escopo de Variaveis: O Escopo de declarações é o local onde a variavel vai ou não vai existir, ou seja, uma variavel pode existir apenas dentro de uma função, sendo uma variavel local, ou no programa principal, sendo uma variavel global. Para modificar uma variavel global de dentro de uma função usamos o comando: global variavel. Dessa forma acessamos o endereço da variavel global na memoria, tornando possivel modificar variaveis globais de dentro da uma função.
-----------------------------------------------------------------------------------------------------------------------------------
-Retornando valores: Usamos o comando return variavel para retorna um valor da variavel de dentro da função para o programa principal, permitindo que o valor seja exibido diretamente ou que o valor seja atribuido a uma variavel do programa principal, dessa forma o valor deixa de ser de uma variavel local e passa a ser de uma variavel global. Obs: assim que usamos o return em uma função, nada a baixo será lido, pois a função encerra ali.
+## `__doc__`
+
+Uma segunda forma de acessar a documentação é pelo atributo `__doc__`:
+
+```python
+print(comando.__doc__)
+```
+
+O `.__doc__` é o atributo **cru** (string pura).
+
+### Exemplo
+
+```python
+print(len.__doc__)
+```
+
+---
+
+## Docstrings
+
+**Docstrings** são documentações feitas pelo desenvolvedor sobre a sua função, ficando logo abaixo da linha de definição da função. O objetivo delas é ser uma espécie de manual para outros programadores ou até mesmo usuários.
+
+### Exemplo
+
+```python
+def contador(i, f, p):
+    """
+    --> Faz uma contagem e mostra na tela.
+    :param i: inicia a contagem.
+    :param f: marca o fim da contagem.
+    :param p: pontua a quantidade do salto.
+    return: Sem retorno.
+    """
+    # código da função
+```
+
+Para ler a sua própria docstring enquanto programa, basta digitar `help(sua_funcao)` no console. O Python vai buscar exatamente o que você escreveu entre as aspas triplas `"""`.
+
+---
+
+## Default Parameters (Parâmetros Padrão)
+
+**Default Parameters** é um método que utiliza um valor padrão (*default*) para evitar que a função dê erro ao requerer um argumento para um parâmetro que não recebeu argumento.
+
+Basicamente, quando definimos `0` como valor padrão para os parâmetros na função abaixo, eles já possuem aquele valor, tornando a passagem do argumento opcional. Parâmetros obrigatórios vêm antes dos parâmetros opcionais.
+
+### Exemplo
+
+```python
+def somar(a=0, b=0, c=0):
+    s = a + b + c
+    print(f"A soma vale {s}")
+
+somar(3, 2, 5)
+somar(5, 2)
+somar(2)
+somar()
+```
+
+### Resultados
+
+| Chamada           | Saída               |
+|-------------------|---------------------|
+| `somar(3, 2, 5)`  | `A soma vale 10`    |
+| `somar(5, 2)`     | `A soma vale 7`     |
+| `somar(2)`        | `A soma vale 2`     |
+| `somar()`         | `A soma vale 0`     |
+
+---
+
+## Escopo de Variáveis
+
+O **escopo de variáveis** é o local onde a variável vai ou não existir. Ou seja, uma variável pode existir apenas dentro de uma função, sendo uma **variável local**, ou no programa principal, sendo uma **variável global**.
+
+Para modificar uma variável global de dentro de uma função, usamos o comando:
+
+```python
+global variavel
+```
+
+Dessa forma, acessamos o endereço da variável global na memória, tornando possível modificar variáveis globais de dentro de uma função.
+
+---
+
+## Retornando Valores
+
+Usamos o comando `return variavel` para retornar um valor da variável de dentro da função para o programa principal. Isso permite que o valor seja exibido diretamente ou que seja atribuído a uma variável do programa principal.
+
+> **Correção importante:** o valor retornado não se torna automaticamente global. A variável original continua local. O que acontece é que o valor retornado pode ser atribuído a uma variável global no programa principal.
+
+> **Observação:** assim que usamos o `return` em uma função, nada abaixo dele será lido, pois a função encerra ali.
+
+### Exemplo
+
+```python
+def somar(a, b):
+    return a + b
+
+resultado = somar(3, 4)
+print(resultado)  # 7
+```
