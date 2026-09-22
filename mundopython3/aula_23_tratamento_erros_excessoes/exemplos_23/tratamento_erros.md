@@ -119,11 +119,3 @@ except (ValueError, ZeroDivisionError):
 | `IndexError`         | Índice fora do intervalo em lista/tupla.                          |
 
 ---
-- “se não acontece uma exceção” → **se acontecer uma exceção** (reescrito para ficar coerente)
-- “apos” → **após**
-- “varios” → **vários**
-- “try deve vir acompanhado de um except” → mantido, destacando que é **pelo menos um**.
-- Adicionada tabela-resumo dos blocos e dos tipos de exceção.
-- Adicionados exemplos de código para `try/except/else/finally` e para LBYL/EAFP.
-
-Pode enviar a próxima anotação.
