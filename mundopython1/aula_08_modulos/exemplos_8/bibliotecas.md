@@ -1,32 +1,62 @@
-bibliotecas são conjutos de funcionalidades prontas que não veem nativamente na linguagem.
+# Bibliotecas em Python
 
-Essas funcionalidades não nativas devem ser importadas por meio de bibliotecas, na qual ja tem as funcionalidades desejadas desenvolvidas para o desenvolvimento de funções especificas dentro do sistema.
+## O que são bibliotecas?
 
-A importação de bibliotecas no Pyton ocorre por meio do comando import + nome do módulo ou biblioteca. Obs: essas importações devem ocorrer logo no inicio do progama.
+Bibliotecas são conjuntos de funcionalidades prontas que não vêm nativamente na linguagem. Essas funcionalidades não nativas devem ser importadas por meio de bibliotecas, que já possuem funcionalidades desejadas desenvolvidas para funções específicas dentro do sistema.
 
-----------------------------------------------------------------------------------------------------------------------------------
-Ex: import + biblioteca irá importar toda a biblioteca.
+## Importação de bibliotecas
 
-    from biblioteca import + item especifico irá importar apenas um item especifico.
+A importação de bibliotecas em Python ocorre por meio do comando `import` + nome do módulo ou biblioteca.  
+**Obs.:** essas importações devem ocorrer logo no início do programa.
 
-----------------------------------------------------------------------------------------------------------------------------------
-A biblioteca math é a biblioteca matemática do Python.
+### Formas de importação
 
-comandos de arredondamento da respectiva biblioteca:
+- `import biblioteca` → importa toda a biblioteca (módulo).
+- `from biblioteca import item_especifico` → importa apenas um item específico.
+- `from biblioteca import item1, item2` → importa múltiplos itens específicos, separados por vírgula.
 
-ceil é o comando para arredondar o valor para cima.
-floor é comando para arredondar o valor para baixo.
-trunc é o comando que irá truncar um número elimirar da virgula para frente.
-pow é a comando para calcular potencia.
-sqrt é o comando para calcular raiz.
-factorial é o comando para calcular calculos fatoriais.
-----------------------------------------------------------------------------------------------------------------------------------
-Tomando como referencia os exemplos anteriores.
+### Exemplos
 
-import math iria importar toda a biblioteca matemática.
-from math import sqrt importaria somente a função para raiz quadrada.
+```python
+import math
+from math import sqrt
+from math import sqrt, pow
+```
 
-Caso queira importar mais de uma funcionalidade especifica é nescessario sepera las por virgula. 
-Ex: From math import sqrt, pow importaria tanto a função para calcular raiz, quanto a função para calcular calcular potencia.
-----------------------------------------------------------------------------------------------------------------------------------
-Para usar bibliotecas externas, primeiro é nescessario instalar a biblioteca na sua maquina, só depois disso é possivel importar a biblioteca usando normalmente como nos exemplos anteriores.
+## Biblioteca `math`
+
+A biblioteca `math` é a biblioteca matemática do Python.
+
+### Funções da `math`
+
+| Função      | Descrição                                                       |
+|-------------|-----------------------------------------------------------------|
+| `ceil`      | Arredonda o valor para cima.                                    |
+| `floor`     | Arredonda o valor para baixo.                                   |
+| `trunc`     | Trunca o número, eliminando a parte decimal.                    |
+| `pow`       | Calcula potência.                                               |
+| `sqrt`      | Calcula raiz quadrada.                                          |
+| `factorial` | Calcula fatorial.                                               |
+
+**Observação:** nem todas são funções de arredondamento. `ceil`, `floor` e `trunc` arredondam/truncam; `pow`, `sqrt` e `factorial` são funções matemáticas diversas.
+
+### Exemplos de uso
+
+```python
+import math
+
+print(math.sqrt(9))       # 3.0
+print(math.pow(2, 3))     # 8.0
+print(math.factorial(5))  # 120
+
+from math import sqrt, pow
+
+print(sqrt(16))           # 4.0
+print(pow(2, 4))          # 16.0
+```
+
+## Bibliotecas externas
+
+Para usar bibliotecas externas, primeiro é necessário instalá-las na máquina. Só depois disso é possível importá-las normalmente, como nos exemplos anteriores.
+
+---
