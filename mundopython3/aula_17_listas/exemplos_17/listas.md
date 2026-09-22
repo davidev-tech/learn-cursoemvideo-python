@@ -51,5 +51,3 @@ if "Pizza" in lanches:
 else:
     print("Item não encontrado")
 ```
-
----
