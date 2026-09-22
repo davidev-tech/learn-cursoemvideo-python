@@ -1,16 +1,57 @@
-Uma cadeia de caracter é a mesma coisa que uma String.
-Ex: "Engenharia de Software"
-Toda cadeia de texto no Python está entre aspas simples ('texto') ou aspas duplas ("texto").
-----------------------------------------------------------------------------------------------------------------------------------
-faculdade = Engenharia de Software
-O computador não salva a String inteira em uma memoria, mas cria micro espaços dentro da memoria e guarda cada caracter em um espaço diferente.
-Ex: |E|n|g|e|n|h|a|r|i|a|    |d| |e|   |S|o|f|t|w|a|r|e|
-     0 1 2 3 4 5 6 7 8 9  10 11  12...
-Cada caracter é salvo em um espaço diferente da memoria
-Cada uma dessas caixas ocupa uma posição chamada de indice, como é mostrado a cima. Obs: até caracteres como espaço também ocupam espaço nessas micro memorias, e a contagem do indice é iniciada em 0.
-----------------------------------------------------------------------------------------------------------------------------------
-Dentro dessa assunto de String temos algumas tecnicas de manipulação de Strings, sendo elas:
+# Strings em Python
 
-fatiamento (texto[indice])
-Análise com len(), count(), find()
-transformações com replace(), upper(), lower(), capitalize(), title(), strip(), junção com join().
+## Definição
+
+- Uma **cadeia de caracteres** é o mesmo que uma **String**.
+- Exemplo: `"Engenharia de Software"`
+- Toda cadeia de texto em Python fica entre **aspas simples** (`'texto'`) ou **aspas duplas** (`"texto"`).
+
+## Atribuição
+
+```python
+faculdade = "Engenharia de Software"
+```
+
+> **Observação:** sem as aspas, o Python interpretaria `Engenharia de Software` como nomes de variáveis/erro, e não como texto.
+
+## Armazenamento na memória
+
+O computador não guarda a string inteira em um único espaço; de forma simplificada, cada caractere ocupa uma posição na memória. Cada uma dessas posições é chamada de **índice**.
+
+- Até caracteres como **espaço** ocupam um índice.
+- A contagem dos índices começa em **0**.
+
+### Exemplo com `"Engenharia de Software"`
+
+| Índice | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
+|--------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|----|----|----|
+| Caractere | E | n | g | e | n | h | a | r | i | a | ␣ | d | e | ␣ | S | o | f | t | w | a | r | e |
+
+> `␣` representa um espaço.
+
+## Técnicas de manipulação de Strings
+
+### Fatiamento
+
+- `texto[indice]` → acessa o caractere que está na posição indicada.
+
+### Análise
+
+- `len()` → retorna o comprimento da string.
+- `count()` → conta quantas vezes um caractere ou trecho aparece.
+- `find()` → retorna o índice da primeira ocorrência de um trecho.
+
+### Transformação
+
+- `replace()` → substitui parte do texto.
+- `upper()` → transforma em maiúsculas.
+- `lower()` → transforma em minúsculas.
+- `capitalize()` → deixa a primeira letra maiúscula.
+- `title()` → deixa as primeiras letras de cada palavra maiúsculas.
+- `strip()` → remove espaços no início e no fim.
+
+### Junção
+
+- `join()` → junta elementos de uma sequência usando uma string como separador.
+
+---
