@@ -107,5 +107,3 @@ print(locadora[2]["titulo"])  # Exibe Matrix
   ```
 - `.copy()` faz uma **cópia rasa**. Para cópia profunda, use `copy.deepcopy()`.
 - “Joss whendo” → **Joss Whedon**
-
-Pode enviar a próxima anotação.
