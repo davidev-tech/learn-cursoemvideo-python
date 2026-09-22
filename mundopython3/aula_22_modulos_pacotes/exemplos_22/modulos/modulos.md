@@ -1,5 +1,82 @@
-modularização é o ato de modularizar, é decompor problemas complexos em subproblemas independentes. Surgiu com o proposito de dividir sistemas grandes em partes menores, facilitando a legibilidade e manutenção, mantem o coódigo mais organizado, oculta detalhamento do código, permite a reutilização de um modulo em outros projetos. Para utilizar modularização, jogamos as funções em um arquivo diferente e seguimos o mesmo padrão de importação que já existe, usamos no arquivo principal import nome_arquivo e ou import nome_arquivo nome da função e já podemos usar, apenas chamando a função dentro do arquivo principal.
-----------------------------------------------------------------------------------------------------------------------------------
-Namespace (Espaço de Nomes): Quando usamos import uteis, criamos um "caminho". Isso evita que, se você tiver uma função soma() no seu programa e outra soma() no módulo, elas entrem em conflito. Você usará uteis.soma().
+# Modularização em Python
 
-Single Responsibility Principle (SRP): Um módulo deve ter uma "razão única para existir". Ex: Um módulo de matematica.py não deve ter funções para "imprimir boletos". Isso mantém a modularização "saudável".
+## Definição
+
+**Modularização** é o ato de modularizar, ou seja, decompor problemas complexos em subproblemas independentes.
+
+Surgiu com o propósito de:
+
+- dividir sistemas grandes em partes menores;
+- facilitar a legibilidade e a manutenção;
+- manter o código mais organizado;
+- ocultar detalhes de implementação;
+- permitir a reutilização de um módulo em outros projetos.
+
+## Como utilizar
+
+Para utilizar modularização, colocamos as funções em um arquivo diferente e seguimos o mesmo padrão de importação que já existe.
+
+No arquivo principal, podemos usar:
+
+```python
+import nome_arquivo
+```
+
+ou
+
+```python
+from nome_arquivo import nome_funcao
+```
+
+Depois, basta chamar a função dentro do arquivo principal.
+
+### Exemplo
+
+**Arquivo `uteis.py`:**
+
+```python
+def soma(a, b):
+    return a + b
+```
+
+**Arquivo principal:**
+
+```python
+import uteis
+
+print(uteis.soma(2, 3))  # 5
+```
+
+Ou, importando diretamente a função:
+
+```python
+from uteis import soma
+
+print(soma(2, 3))  # 5
+```
+
+---
+
+## Namespace (Espaço de Nomes)
+
+Quando usamos `import uteis`, criamos um **“caminho”**. Isso evita que, se você tiver uma função `soma()` no seu programa e outra `soma()` no módulo, elas entrem em conflito.
+
+Nesse caso, você usará:
+
+```python
+uteis.soma()
+```
+
+Assim, o nome da função fica associado ao módulo de origem.
+
+---
+
+## Single Responsibility Principle (SRP)
+
+**Single Responsibility Principle** (Princípio da Responsabilidade Única): um módulo deve ter uma **“razão única para existir”**.
+
+### Exemplo
+
+Um módulo `matematica.py` não deve ter funções para “imprimir boletos”.
+
+Isso mantém a modularização **saudável**.
